@@ -14,8 +14,7 @@ import { Component,
 })
 export class DemoComponent implements OnChanges, OnInit {
   title: string = 'Demo Component';
-  @Input() message: string[] | undefined;
-  // @Input() message: string | undefined;
+  @Input() message: string | undefined;
   @ViewChild('temp') tempPara: ElementRef | undefined;
 
 
