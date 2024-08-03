@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, 
+import { AfterContentChecked, AfterContentInit, Component, 
   ContentChild, 
   DoCheck, 
   ElementRef, 
@@ -14,7 +14,7 @@ import { AfterContentInit, Component,
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentInit {
+export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked {
   title: string = 'Demo Component';
   @Input() message: string | undefined;
   @ViewChild('temp') tempPara: ElementRef | undefined;
@@ -37,7 +37,7 @@ export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
     console.log('In ngOnInit', this.tempPara?.nativeElement);
   }
 
-  ngDoCheck() {                         //it runs during every change detection cycle even if there is no change in input bound properties. it runs after ngOnChanges and ngOnInit.
+  ngDoCheck() {                         //it runs --during every change detection cycle even if there is no change in input bound properties.-- it runs after ngOnChanges and ngOnInit.
     console.log('Demo component ngDoCheck Hook called');
     console.log('In ngDoCheck', this.paraContent?.nativeElement);
   }
@@ -45,5 +45,11 @@ export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
   ngAfterContentInit() {                //it runs --Once-- after the components projected content has been fully initialized.
     console.log('Demo component ngAfterContentInit Hook called');
     console.log('In ngAfterContentInit', this.paraContent?.nativeElement);
+  }
+
+  ngAfterContentChecked() {             //it runs --during every change detection cycle even if there is no change in input bound properties.-- after the components projected content has been fully initialized.
+    console.log('Demo component ngAfterContentChecked Hook called');
+    console.log('In ngAfterContentChecked', this.paraContent?.nativeElement.innerHTML);
+
   }
 }

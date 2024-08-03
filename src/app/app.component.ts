@@ -14,6 +14,6 @@ export class AppComponent {
   }
 
   onBtnCilcked(inputEl: HTMLInputElement) {
-    this.inputVal = inputEl.value;
+    // this.inputVal = inputEl.value;
   }
 }
