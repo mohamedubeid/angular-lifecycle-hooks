@@ -7,13 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-lifecycle-hook';
-  inputVal: string = '';
+  // inputVal: string = '';
+  inputVal: string[] = ['hello', 'world'];
 
   constructor(){
     console.log('App Component constructor called!');
   }
 
   onBtnCilcked(inputEl: HTMLInputElement) {
-    this.inputVal = inputEl.value;
+    this.inputVal.push(inputEl.value);
+    // this.inputVal = inputEl.value;
   }
 }
