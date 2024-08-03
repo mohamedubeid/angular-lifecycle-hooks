@@ -1,5 +1,7 @@
 <div class="container">
   <input type="text" #InputEl (focus)="0">
   <button (click)="onBtnCilcked(InputEl)">Submit</button>
-  <app-demo [message]="inputVal"></app-demo>
+  <app-demo [message]="inputVal">
+    <p #temp>This is projected content.</p>
+  </app-demo>
 </div>
