@@ -33,4 +33,8 @@ export class DemoComponent implements OnChanges, OnInit {
     console.log('Demo component ngOnInit Hook called');
     console.log(this.tempPara?.nativeElement.innerHTML);
   }
+
+  ngDoCheck() {                         //it runs during every change detection cycle even if there is no change in input bound properties. it runs after ngOnChanges and ngOnInit.
+    console.log('Demo component ngDoCheck Hook called');
+  }
 }
